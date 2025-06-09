@@ -10,7 +10,8 @@
     "psr-4": {
       "App\\": "app/",
       "App\\Middlewares\\": "app/Middlewares/",
-      "App\\Controllers\\": "app/Controllers/",
+      "App\\Controllers\\": "app/Controller/",
+      "vendor\\": "vendor/",
       "App\\Models\\": "app/Models/"
     }
   }

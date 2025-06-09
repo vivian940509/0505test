@@ -9,6 +9,7 @@ return array(
     'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
     'App\\Models\\' => array($baseDir . '/app/Models'),
     'App\\Middlewares\\' => array($baseDir . '/app/Middlewares'),
-    'App\\Controllers\\' => array($baseDir . '/app/Controllers'),
+    'App\\Controllers\\' => array($baseDir . '/app/Controller'),
     'App\\' => array($baseDir . '/app'),
+    'vendor\\' => array($baseDir . '/vendor'),
 );

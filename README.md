@@ -51,3 +51,10 @@ $exampleAbsolute = "/../";
 // __DIR__ 會回傳當前檔案所在的目錄，這裡為 "backend/vendor"
 // '/../' 代表從 "vendor" 回到上一層 "backend"
 // 再加上 "app/Controllers/Product.php" 就可以正確定位到該檔案
+
+## Postman 測試教學
+1. 安裝並開啟 [Postman](https://www.postman.com/)。
+2. 新增一個 **POST** 請求，URL 指向後端 `index.php` 所在路徑，例如：
+   `http://localhost/backend/public/index.php?action=doLogin`。
+3. 在 `Body` 欄位選擇 `x-www-form-urlencoded`，填入 `email` 及 `password` 參數後送出請求。
+4. 成功後會收到包含 `token` 的 JSON 回應。接著可在其他受保護的路由於 `Headers` 新增 `Authorization: Bearer <token>` 進行測試。

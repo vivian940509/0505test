@@ -15,7 +15,7 @@ namespace vendor;
     public function run($action){
         $class = $this->routeTable[$action]['class'];
         $method = $this->routeTable[$action]['method'];
-        $class = "Controllers\\" . $class;
+        $class = "App\Controllers\\" . $class;
         $controller = new $class();
         $response = $controller->$method();
         return $response;
