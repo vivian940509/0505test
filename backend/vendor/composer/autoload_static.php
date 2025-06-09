@@ -11,12 +11,16 @@ class ComposerStaticInit20fad51902f91e7fd3039e016a6556b5
         array (
             'Firebase\\JWT\\' => 13,
         ),
-        'A' => 
+        'A' =>
         array (
             'App\\Models\\' => 11,
             'App\\Middlewares\\' => 16,
             'App\\Controllers\\' => 16,
             'App\\' => 4,
+        ),
+        'v' =>
+        array (
+            'vendor\\' => 7,
         ),
     );
 
@@ -33,13 +37,17 @@ class ComposerStaticInit20fad51902f91e7fd3039e016a6556b5
         array (
             0 => __DIR__ . '/../..' . '/app/Middlewares',
         ),
-        'App\\Controllers\\' => 
+        'App\\Controllers\\' =>
         array (
-            0 => __DIR__ . '/../..' . '/app/Controllers',
+            0 => __DIR__ . '/../..' . '/app/Controller',
         ),
-        'App\\' => 
+        'App\\' =>
         array (
             0 => __DIR__ . '/../..' . '/app',
+        ),
+        'vendor\\' =>
+        array (
+            0 => __DIR__ . '/../..' . '/vendor',
         ),
     );
 

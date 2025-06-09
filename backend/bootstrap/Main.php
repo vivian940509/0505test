@@ -1,7 +1,21 @@
 <?php
-require_once __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . '/../vendor/autoload.php';
+// autoload vendor\ namespace classes
+spl_autoload_register(function ($class) {
+    $prefix = 'vendor\\';
+    $baseDir = __DIR__ . '/../vendor/';
+    if (strncmp($prefix, $class, strlen($prefix)) === 0) {
+        $relativeClass = substr($class, strlen($prefix));
+        $file = $baseDir . $relativeClass . '.php';
+        if (file_exists($file)) {
+            require $file;
+        }
+    }
+});
+
 use App\Middlewares\AuthMiddleware;
-use App\Router;
+use vendor\Router;
+use vendor\DB;
 
 class Main {
     static function run() {
