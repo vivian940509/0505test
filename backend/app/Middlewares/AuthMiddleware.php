@@ -4,6 +4,7 @@ namespace app\Middlewares;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 use Firebase\JWT\ExpiredException;
+use vendor\DB;
 
 class AuthMiddleware
 {
@@ -81,12 +82,18 @@ class AuthMiddleware
             ];
         }
 
-        // 連資料庫查 user
+        // 連資料庫查 user，使用與 vendor\DB 相同的設定
         try {
+            $dsn = sprintf(
+                'mysql:host=%s;dbname=%s;charset=utf8mb4',
+                DB::$dbHost,
+                DB::$dbName
+            );
             $pdo = new \PDO(
-                "mysql:host=127.0.0.1;dbname=jwt;charset=utf8mb4",
-                'root', '',
-                [\PDO::ATTR_ERRMODE=>\PDO::ERRMODE_EXCEPTION]
+                $dsn,
+                DB::$dbUser,
+                DB::$dbPassword,
+                [\PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]
             );
         } catch (\PDOException $e) {
             return [
