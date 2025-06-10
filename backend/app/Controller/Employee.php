@@ -1,7 +1,9 @@
 <?php
-namespace Models;
-use Vendor\DB;
+namespace App\Controllers;
 
+use vendor\Controller;
+use vendor\DB;
+use App\Models\Employee as EmployeeModel;
 
 class Employee extends Controller
 {
@@ -27,12 +29,12 @@ class Employee extends Controller
         $address = $_POST['address'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
-        return $this->employeeModel->newUser($name, $password, $JoinDate,$address, $email, $phone);
+        return $this->employeeModel->newUser($name, $password, $JoinDate, $address, $email, $phone);
     }
 
     public function removeUser() {
-        $id = $_POST['name'];
-        return $this->em->removeUser($name);
+        $name = $_POST['name'];
+        return $this->employeeModel->removeUser($name);
     }
     public function updateUser() {
         $name = $_POST['name'];
@@ -41,7 +43,7 @@ class Employee extends Controller
         $address = $_POST['address'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
-        return $this->em->updateUser($name, $password, $JoinDate,$address, $email, $phone);
+        return $this->employeeModel->updateUser($name, $password, $JoinDate, $address, $email, $phone);
     }
 }
 
