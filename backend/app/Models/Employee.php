@@ -16,8 +16,8 @@ class Employee
         return DB::select($sql, $arg);
     }
     
-    public function newUser($name, $password, $email, $phone){
-        $sql = "INSERT INTO user (`name`, `password`, `JoinDate`, `address` , `email`, `phone) VALUES (?, ?, ?, ?)";
+    public function newUser($name, $password, $JoinDate, $address, $email, $phone){
+        $sql = "INSERT INTO `user` (`name`, `password`, `JoinDate`, `address`, `email`, `phone`) VALUES (?, ?, ?, ?, ?, ?)";
         return DB::insert($sql, array($name, $password, $JoinDate, $address, $email, $phone));
     }
     
@@ -26,9 +26,9 @@ class Employee
         return DB::delete($sql, array($name));        
     }
     
-    public function updateUser($name, $password, $email, $phone){
-        $sql = "UPDATE user SET password = ?, $JoinDate, $address, $email, $phoneWHERE name = ?";
-        return DB::update($sql, array($name, $password, $JoinDate, $address, $email, $phone));
+    public function updateUser($name, $password, $JoinDate, $address, $email, $phone){
+        $sql = "UPDATE `user` SET `password` = ?, `JoinDate` = ?, `address` = ?, `email` = ?, `phone` = ? WHERE `name` = ?";
+        return DB::update($sql, array($password, $JoinDate, $address, $email, $phone, $name));
     }
 }
 ?>
